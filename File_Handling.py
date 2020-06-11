@@ -8,7 +8,6 @@ parser.add_argument('first_argument', help='First number is required', type=int)
 parser.add_argument('second_argument', help='Second number is required', type=int)
 parser.add_argument('img_path', help='img_path Required')
 
-
 args = parser.parse_args()
 
 img=cv2.imread(args.img_path)
@@ -23,7 +22,6 @@ print('Sum : {}'.format(args.first_argument + args.second_argument))
 args_dict = vars(args)
 
 print('Args Dict : ',args_dict)
-
 print('First_argument from dict : ', args_dict['first_argument'])
 
 l = len(sys.argv)
