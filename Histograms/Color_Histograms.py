@@ -52,3 +52,19 @@ show_img_with_matplotlib(subtracted_image, "image darker", 3)
 show_hist_with_matplotlib_rgb(hist_color_subtracted_image, "color histogram", 6, ['b', 'g', 'r'])
 
 plt.show()
+
+
+def equalize_hist_color(img):
+    channels = cv2.split(img)
+    eq_channels = []
+    for ch in channels:
+        eq_channels.append(cv2.equalizeHist(ch))
+    eq_image = cv2.merge(eq_channels)
+    return eq_image
+
+
+def equalize_hist_color_hsv(img):
+    H, S, V = cv2.split(cv2.cvtColor(img, cv2.COLOR_BGR2HSV))
+    eq_V = cv2.equalizeHist(V)
+    eq_image = cv2.cvtColor(cv2.merge([H, S, eq_V]), cv2.COLOR_HSV2BGR)
+    return eq_image
