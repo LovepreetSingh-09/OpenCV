@@ -6,3 +6,4 @@ Face_Recognition/shape_predictor_5_face_landmarks.dat
 *.prototxt
 *.caffemodel
 *.cfg
+*.xml
